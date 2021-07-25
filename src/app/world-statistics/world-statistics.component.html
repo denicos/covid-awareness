@@ -40,34 +40,43 @@
           </div>
 
       </div>
-      <div class=" table-responsive{-sm|-md|-lg|-xl} p-2">
-        <table  datatable  class="table table-bordered table-striped table-hover">
-          <thead>
-            <tr>
-              <th scope="col">COUNTRY</th>
-              <th scope="col">CASES</th>
-              <th scope="col">TODAY CASES</th>
-              <th scope="col">DEATH</th>
-              <th scope="col"> TODAY DEATH</th>
-              <th scope="col">RECOVERED </th>
-              <th scope="col">ACTIVIE </th>
-              <th scope="col">TOTAL TESTS </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let country of countries" >
-              <th>{{ country.country }}</th>
-              <td>{{country.cases}}</td>
-              <td> {{ country.todayCases }} </td>
-              <td>{{ country.deaths }} </td>
-              <td>{{ country.todayDeaths }} </td>
-              <td>{{ country.recovered}} </td>
-              <td>{{ country.active}} </td>
-              <td>{{ country.totalTests}} </td>
-            </tr>
 
-          </tbody>
-        </table>
-    </div>
   </div>
 </section>
+<div id="no-more-tables">
+
+
+</div>
+
+
+
+<div class=" container-fluid">
+  <table  datatable  class="col-md-12 table-bordered table-striped table-condensed cf">
+    <thead class="cf">
+      <tr>
+        <th scope="col">COUNTRY</th>
+        <th scope="col">CASES</th>
+        <th scope="col">TODAY CASES</th>
+        <th scope="col">DEATH</th>
+        <th scope="col"> TODAY DEATH</th>
+        <th scope="col">RECOVERED </th>
+        <th scope="col">ACTIVIE </th>
+        <th scope="col">TOTAL TESTS </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let country of countries" >
+        <th>{{ country.country }}</th>
+        <td>{{country.cases}}</td>
+        <td> {{ country.todayCases }} </td>
+        <td>{{ country.deaths }} </td>
+        <td>{{ country.todayDeaths }} </td>
+        <td>{{ country.recovered}} </td>
+        <td>{{ country.active}} </td>
+        <td>{{ country.totalTests}} </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
