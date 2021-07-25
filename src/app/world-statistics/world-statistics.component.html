@@ -1,0 +1,73 @@
+<app-navigation></app-navigation>
+<section class="p-3">
+  <div class="container-fluid">
+    <h1 class="text-center bg-light shadow py-2 mb-4 text-info">COVID-19 WORLD STATISTICS</h1>
+
+</div>
+
+</section>
+
+<section class="p-2">
+  <div class="container-fluid">
+
+      <div class="row g-3 text-center shadow ">
+          <div class="col-md mb-3">
+              <div class="card bg-primary text-white" >
+                  <div class="card-body">
+                    <h1 class="card-title">TOTAL CASES</h1>
+                    <p class="card-text">{{ world.cases }} </p>
+
+                  </div>
+              </div>
+          </div>
+          <div class="col-md">
+              <div class="card bg-primary text-white">
+                  <div class="card-body">
+                    <h1 class="card-title"> TOTAL DEATHS</h1>
+                    <p class="card-text"> {{ world.deaths }} </p>
+
+                  </div>
+              </div>
+          </div>
+          <div class="col-md">
+              <div class="card bg-primary text-white">
+                  <div class="card-body">
+                    <h1 class="card-title"> TOTAL RECOVERED</h1>
+                    <p class="card-text">{{ world.recovered}}</p>
+
+                  </div>
+              </div>
+          </div>
+
+      </div>
+      <div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">COUNTRY</th>
+              <th scope="col">CASES</th>
+              <th scope="col">TODAY CASES</th>
+              <th scope="col">DEATH</th>
+              <th scope="col"> TODAY DEATH</th>
+              <th scope="col">RECOVERED </th>
+              <th scope="col">ACTIVIE </th>
+              <th scope="col">TOTAL TESTS </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let country of countries" >
+              <th>{{ country.country }}</th>
+              <td>{{country.cases}}</td>
+              <td> {{ country.todayCases }} </td>
+              <td>{{ country.deaths }} </td>
+              <td>{{ country.todayDeaths }} </td>
+              <td>{{ country.recovered}} </td>
+              <td>{{ country.active}} </td>
+              <td>{{ country.totalTests}} </td>
+            </tr>
+
+          </tbody>
+        </table>
+    </div>
+  </div>
+</section>
