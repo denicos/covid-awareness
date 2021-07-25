@@ -17,6 +17,7 @@ import { SymptomsComponent } from './symptoms/symptoms.component';
 import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table'
+import { DataTablesModule } from 'angular-datatables'
 
 const routes : Routes = [
    {path: '', component : HomeComponent},
@@ -45,7 +46,8 @@ const routes : Routes = [
     HttpClientModule,
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
-    MatTableModule
+    MatTableModule,
+    DataTablesModule.forRoot()
   ],
   providers: [CovidService],
   bootstrap: [AppComponent]

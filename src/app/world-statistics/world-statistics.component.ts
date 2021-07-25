@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { MatTableModule } from '@angular/material/table'
 import { CovidService } from '../services/covid.service';
-import { Chart } from 'chart.js'
+import { Subject  } from 'rxjs';
+import { DataTablesModule } from 'angular-datatables';
 
 @Component({
   selector: 'app-world-statistics',
@@ -9,17 +10,22 @@ import { Chart } from 'chart.js'
   styleUrls: ['./world-statistics.component.scss']
 })
 
-export class WorldStatisticsComponent implements OnInit {
+export class WorldStatisticsComponent implements OnInit, OnDestroy {
  @ViewChild('barCanvas') private barCanvas: ElementRef;
  world : any;
  countries : any;
  barchart : any
+
+ dtOptions: DataTables.Settings = {};
+ dtTrigger: Subject<any> = new Subject<any>();
+
   constructor(private covid: CovidService) { }
 
   ngOnInit() {
     this.covid.getGlobalInfo().subscribe(
        data=>{
          this.world=data;
+
          console.log(data)
        }
 
@@ -29,11 +35,18 @@ export class WorldStatisticsComponent implements OnInit {
     this.covid.getForAllCountries().subscribe(
       data=> {
         this.countries = data;
+        this.dtTrigger.next();
         console.log(data)
       }
     )
 
   }
 
+  ngOnDestroy(): void {
+    this.dtTrigger.unsubscribe();
+  }
+
 
 }
+
+
