@@ -23,6 +23,8 @@
     "@angular/router": "~10.0.14",
     "bootstrap": "^5.0.1",
     "chart.js": "^3.5.0",
+    "jquery.js": "0.0.2-security",
+    "popper.js": "^1.16.1",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
